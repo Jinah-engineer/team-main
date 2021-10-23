@@ -162,9 +162,11 @@
 
 <!-- 총 리뷰 게시물 수 -->
 <select id="getReviewTotalCount" resultType="int">
-	SELECT COUNT(*) FROM user_review r JOIN user u
+	SELECT COUNT(*) FROM user_review r 
+	JOIN user u
 	ON r.re_writer = u.userid
-	<include refid="ReviewCriteria"></include>
+	WHERE r.re_writer = u.userid
+	<include refid="ReviewCriteria" ></include>
 </select>
  
 <!-- 리뷰 조회수 설정하기 -->
