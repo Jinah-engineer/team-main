@@ -1,5 +1,7 @@
   package org.zerock.service;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Path;
@@ -99,19 +101,16 @@ public class UserReviewServiceImpl implements UserReviewService {
 	// 리뷰 정렬 방식 
 	@Override
 	public List<UserReviewVO> getPopularList(ReviewCriteria recri) {
-		log.info("###########################poppular list#####################################");
 		return orderMapper.getPopularReviewList(recri);
 	}
 	
 	@Override
 	public List<UserReviewVO> getLatestList(ReviewCriteria recri) {
-		log.info("###########################latest list#####################################");
 		return orderMapper.getLatestReviewList(recri);
 	}
 	
 	@Override
 	public List<UserReviewVO> getviewCountList(ReviewCriteria recri) {
-		log.info("###########################viewcount list#####################################");
 		return orderMapper.getViewCountReviewList(recri);
 	}
 

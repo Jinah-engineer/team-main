@@ -8,7 +8,7 @@
 <!-- 리뷰 페이지네이션 -->
 <sql id="ReviewCriteria">
 	<where>
-		<foreach item="type" separator="OR" collection="reviewTypeArr" open="(" close=")">
+		<foreach item="type" separator="OR" collection="reviewTypeArr">
 			<choose>
 				<when test='type == "T"'>
 					re_title LIKE CONCAT('%', #{keyword}, '%')
@@ -165,7 +165,6 @@
 	SELECT COUNT(*) FROM user_review r 
 	JOIN user u
 	ON r.re_writer = u.userid
-	WHERE r.re_writer = u.userid
 	<include refid="ReviewCriteria" ></include>
 </select>
  
