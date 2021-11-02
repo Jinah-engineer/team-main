@@ -203,13 +203,13 @@
 					<!-- 제목 -->
 					<div class="item form-group">
 						<label for="re-input1">리뷰 제목</label> <input id="re-input1"
-							class="form-control" name="reTitle" type="text" minlength="3"
+							class="form-control" name="reTitle" type="text" minlength="3" autocomplete="off"
 							placeholder="제목을 입력해주세요." required>
 					</div>
 					<!-- 내용 -->
 					<div class="item form-group">
 						<label for="re-textarea1">리뷰 내용</label>
-						<textarea class="form-control" name="reContent" cols="2" rows="10"
+						<textarea class="form-control" name="reContent" cols="2" rows="10" autocomplete="off"
 							placeholder="내용을 입력해주세요." required></textarea>
 					</div>
 
