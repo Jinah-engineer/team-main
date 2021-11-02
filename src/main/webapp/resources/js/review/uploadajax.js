@@ -10,7 +10,6 @@ function showUploadedFile(uploadResultArr) {
 
 $(document).ready(function () {
 
-    //
     $("#re-input2").change(function () {
         console.log("change...")
         console.log(this);

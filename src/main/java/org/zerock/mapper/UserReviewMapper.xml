@@ -8,7 +8,7 @@
 <!-- 리뷰 페이지네이션 -->
 <sql id="ReviewCriteria">
 	<where>
-		<foreach item="type" separator="OR" collection="reviewTypeArr" open="(" close=")">
+		<foreach item="type" separator="OR" collection="reviewTypeArr">
 			<choose>
 				<when test='type == "T"'>
 					re_title LIKE CONCAT('%', #{keyword}, '%')
@@ -162,9 +162,10 @@
 
 <!-- 총 리뷰 게시물 수 -->
 <select id="getReviewTotalCount" resultType="int">
-	SELECT COUNT(*) FROM user_review r JOIN user u
+	SELECT COUNT(*) FROM user_review r 
+	JOIN user u
 	ON r.re_writer = u.userid
-	<include refid="ReviewCriteria"></include>
+	<include refid="ReviewCriteria" ></include>
 </select>
  
 <!-- 리뷰 조회수 설정하기 -->

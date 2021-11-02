@@ -79,7 +79,7 @@
 				<span
 					style="position:absolute; margin-top: 27px; margin-left: 18px"
 					class="icon"></span> <input name="keyword"
-					value="${recri.keyword }" class="search" type="search"
+					value="${recri.keyword }" class="search" type="search" autocomplete="off"
 					id="jinah-search1" placeholder="Search" />
 			</div>
 

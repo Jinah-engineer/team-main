@@ -17,6 +17,6 @@ public class GoogleAnalyticsController {
 	@GetMapping("/ga")
 	public void ga() {
 		log.info("여기 들렸다!!!!!!!!!!!!!!!");
-		HelloAnalyticsReporting.main();
+//		HelloAnalyticsReporting.main();
 	}
 }

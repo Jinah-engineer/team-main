@@ -25,6 +25,9 @@ public interface UserReviewService {
 	boolean reviewModify(UserReviewVO review);
 
 	boolean reviewModify(UserReviewVO review, MultipartFile[] file);
+	
+	// testing
+	boolean maintainFile(UserReviewVO review, MultipartFile[] file);
 
 	boolean reviewRemove(int reBno);
 
@@ -49,7 +52,7 @@ public interface UserReviewService {
 	// 가게 주소 불러오기
 	StoreInfoVO readsubs(MemberVO vo);
 
-	// hotreview
+	// hot review
 	HotReviewVO1 getHot1();
 	HotReviewVO1 getHot2();
 	
