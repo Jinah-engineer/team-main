@@ -17,7 +17,7 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
 
 <meta charset="UTF-8">
-<title>Review - list JSP File</title>
+<title>리뷰 게시물 목록</title>
 
 <style type="text/css">
 @font-face {

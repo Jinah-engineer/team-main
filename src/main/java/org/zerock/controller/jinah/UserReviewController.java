@@ -104,7 +104,8 @@ public class UserReviewController {
 			UserReviewVO review, @ModelAttribute("likers") UserReviewLikersVO likers, Model model) {
 
 		log.info("userReviewGet is working");
-
+		
+		// 리뷰 글 상세
 		UserReviewVO revo = service.reviewGet(reBno);
 
 		// 평점 얻어오기
