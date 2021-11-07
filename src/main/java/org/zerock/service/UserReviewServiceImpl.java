@@ -62,15 +62,20 @@ public class UserReviewServiceImpl implements UserReviewService {
 	}
 
 	// Dependency Injection
+	
+	// 리뷰 관련 Mapper class
 	@Setter(onMethod_ = @Autowired)
 	private UserReviewMapper reviewMapper;
-
+	
+	// 리뷰 이미지 파일 관련 Mapper class
 	@Setter(onMethod_ = @Autowired)
 	private UserReviewFileMapper fileMapper;
 
+	// 리뷰 좋아요 관련 Mapper class
 	@Setter(onMethod_ = @Autowired)
 	private UserReviewLikeMapper likeMapper;
 
+	// 리뷰 게시물 목록 정렬 관련 Mapper class
 	@Setter(onMethod_ = @Autowired)
 	private UserReviewOrderByMapper orderMapper;
 
@@ -85,23 +90,25 @@ public class UserReviewServiceImpl implements UserReviewService {
 	public List<UserReviewVO> getReviewList(ReviewCriteria recri) {
 		return reviewMapper.getReviewListWithPaging(recri);
 	}
-
+	
+	// 리뷰 게시물 목록 (공지사항 - 관리자)
 	@Override
 	public List<UserReviewVO> getAnnounceList(ReviewCriteria recri) {
 		return reviewMapper.getAnnounceListWithPaging(recri);
 	}
 
-	// 리뷰 정렬 방식
+	// 리뷰 정렬 방식 
+	// 인기도순 목록
 	@Override
 	public List<UserReviewVO> getPopularList(ReviewCriteria recri) {
 		return orderMapper.getPopularReviewList(recri);
 	}
-
+	// 최신순 목록
 	@Override
 	public List<UserReviewVO> getLatestList(ReviewCriteria recri) {
 		return orderMapper.getLatestReviewList(recri);
 	}
-
+	// 조회수순 목록
 	@Override
 	public List<UserReviewVO> getviewCountList(ReviewCriteria recri) {
 		return orderMapper.getViewCountReviewList(recri);
@@ -163,11 +170,6 @@ public class UserReviewServiceImpl implements UserReviewService {
 		return reviewMapper.readReview(reBno);
 	}
 	
-//	// 리뷰 조회수
-//	public int viewCount(int reBno) {
-//		return reviewMapper.setViewCount(reBno);
-//	}
-
 	// 특정 리뷰 게시물에 대한 좋아요 사용자 리스트
 	@Override
 	public List<UserReviewLikersVO> getLikersList(int reBno, String userid) {
