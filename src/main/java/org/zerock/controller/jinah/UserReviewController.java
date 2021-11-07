@@ -62,9 +62,7 @@ public class UserReviewController {
 		model.addAttribute("totalCount", reviewTotal);
 
 	}
-
-	// ************ 나의 리뷰 목록 얻어오기 - getMyReviewList + view
-
+	
 	// 리뷰 작성하기 (이미지 파일 포함) - userReviewWrite
 	@PostMapping("/write")
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")

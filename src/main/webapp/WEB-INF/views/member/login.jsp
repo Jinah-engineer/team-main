@@ -183,20 +183,21 @@ $(function(){
 			<div class="row justify-content-center mt-5">
 			
 			<form id="sang-login-form" action="${appRoot}/login" method="post">
-			
 				
 	            <br>
 	            
 				<div class="container-1 row">
 					<span style="position: absolute; margin-top: 27px; margin-left: 18px" class="icon"><i class="fas fa-user"></i></span>
-					<input spellcheck="false" autocomplete="off" autofocus name="username" class="search" type="text" id="input1" placeholder="아이디" />
+					<input spellcheck="false" autocomplete="off" autofocus value="subsuser3"
+					name="username" class="search" type="text" id="input1" placeholder="아이디" />
 				</div>
 				
 				<br>
 				
 				<div class="container-1 row">
 					<span style="position: absolute; margin-top: 27px; margin-left: 18px" class="icon"><i class="fas fa-lock"></i></span>
-					<input name="password" class="search" type="password" id="input2" placeholder="비밀번호" />
+					<input name="password" class="search" type="password" value="subsuser3"
+					id="input2" placeholder="비밀번호" />
 				</div>
 	
 				<br>
