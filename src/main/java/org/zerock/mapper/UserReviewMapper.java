@@ -36,7 +36,7 @@ public interface UserReviewMapper {
 	public int getReviewTotalCount(ReviewCriteria recri);
 	
 	// 리뷰 조회수 설정하기 - setViewCount
-	public void setViewCount(int reBno);
+	public int setViewCount(int reBno);
 
 	// 리뷰 평점 설정하기 - setReviewStar
 	public int setReviewStar(int reBno);

@@ -17,7 +17,7 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
 <meta charset="UTF-8">
-<title>review Modify JSP File</title>
+<title>리뷰 게시물 수정</title>
 </head>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +96,7 @@
 	padding: 50px;
 }
 
-#re-input2-label {
+#newimagebtn {
 	padding: 6px 25px;
 	background-color: #FF84A9;
 	border-radius: 4px;
@@ -193,6 +193,7 @@
 				<form id="re-modify-form1" action="${appRoot }/review/modify"
 					method="post" enctype="multipart/form-data">
 					<!-- 이미지 파일 -->
+					<input type="text" hidden="hidden" id="image-picked" value="" />
 					<c:if test="${not empty review.fileName }">
 						<c:forEach items="${review.fileName }" var="rfile">
 							<div>
@@ -205,22 +206,19 @@
 								그대로 사용</label> <input style="display: none;" id="re-input-before"
 								class="form-control" type="button">
 						</div>
-						<!-- <script>
-							$('#re-input-before').on('click', function() {
-								alert('이미지를 그대로 사용합니다.')
-							})
-						</script> -->
 					</c:if>
+					<div class="item form-group">
+						<!-- <label id="re-input2-label" for="re-input2">이미지 선택</label> --> 
+						<input
+							style="display: none;" id="re-input2" name="file"
+							multiple="multiple" class="form-control" type="file"
+							accept="image/*" hidden>
+						<button type="button" id="newimagebtn" style="border: none;">이미지 선택</button>
+					</div>
+					<!-- 이미지 파일 이름 list -->
 					<div class="uploadResult">
 						<ul>
 						</ul>
-					</div>
-
-					<div class="item form-group">
-						<label id="re-input2-label" for="re-input2">이미지 선택</label> <input
-							style="display: none;" id="re-input2" name="file"
-							multiple="multiple" class="form-control" type="file"
-							accept="image/*">
 					</div>
 					<!-- 제목 -->
 					<div class="item form-group">

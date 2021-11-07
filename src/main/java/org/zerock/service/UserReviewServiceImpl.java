@@ -162,6 +162,11 @@ public class UserReviewServiceImpl implements UserReviewService {
 		reviewMapper.setViewCount(reBno);
 		return reviewMapper.readReview(reBno);
 	}
+	
+//	// 리뷰 조회수
+//	public int viewCount(int reBno) {
+//		return reviewMapper.setViewCount(reBno);
+//	}
 
 	// 특정 리뷰 게시물에 대한 좋아요 사용자 리스트
 	@Override
@@ -198,7 +203,6 @@ public class UserReviewServiceImpl implements UserReviewService {
 		return reviewMapper.updateReview(review) == 1;
 	}
 	
-	// testing
 	// 리뷰 게시물 수정 (기존 이미지 유지)
 	@Override
 	public boolean maintainFile(UserReviewVO review, MultipartFile[] mfile) {

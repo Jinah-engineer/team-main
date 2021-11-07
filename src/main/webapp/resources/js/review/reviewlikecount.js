@@ -26,7 +26,3 @@ $(document).ready(function () {
     });
 
 });
-
-
-
-

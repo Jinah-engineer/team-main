@@ -14,7 +14,7 @@
 <%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp"%>
 
 <meta charset="UTF-8">
-<title>Review - write JSP File</title>
+<title>리뷰 게시물 작성</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

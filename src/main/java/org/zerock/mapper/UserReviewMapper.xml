@@ -187,14 +187,6 @@
 
 <!-- 구독자 정보 얻어오기 -->
 <select id="readSubInfo" resultType="org.zerock.domain.SubscriberInfoVO">
-	
-<!-- 	private String subsId;
-	private String subsName;
-	private String subsAddress;
-	private Integer storeid;
-	private String subsOptions;
-	private String subsAmount; -->
-	
 	SELECT 
 		sub.subsName subsName,
 		sub.subsAddress subsAddress,

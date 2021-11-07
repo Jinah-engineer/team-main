@@ -26,7 +26,6 @@ public interface UserReviewService {
 
 	boolean reviewModify(UserReviewVO review, MultipartFile[] file);
 	
-	// testing
 	boolean maintainFile(UserReviewVO review, MultipartFile[] file);
 
 	boolean reviewRemove(int reBno);
