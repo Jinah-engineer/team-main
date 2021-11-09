@@ -104,6 +104,14 @@
 	cursor: pointer;
 }
 
+#undo-newimagebtn, #undo-oldimagebtn {
+	padding: 6px 25px;
+	background-color: red;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
 #re-input-before-label {
 	padding: 6px 25px;
 	background-color: gray;
@@ -125,8 +133,7 @@
 	const userid = "${pinfo.member.userid}";
 	const reBno = "${review.reBno}";
 </script>
-<script src="${appRoot }/resources/js/review/modifyandremove.js"></script>
-<script src="${appRoot }/resources/js/review/uploadajax.js"></script>
+<script src="${appRoot }/resources/js/review/ajax_modify_remove.js"></script>
 <script src="${appRoot }/resources/js/review/reviewstar-modify.js"></script>
 
 <body>
@@ -193,11 +200,11 @@
 				<form id="re-modify-form1" action="${appRoot }/review/modify"
 					method="post" enctype="multipart/form-data">
 					<!-- 이미지 파일 -->
-					<input type="text" hidden="hidden" id="image-picked" value="" />
+					<input type="text" id="image-picked" value="" hidden/>
 					<c:if test="${not empty review.fileName }">
 						<c:forEach items="${review.fileName }" var="rfile">
-							<div>
-								<img class="center img-fluid"
+							<div id="images">
+								<img class="center img-fluid" id="originals"
 									src="${imgReviewRoot }${review.reBno}/${rfile }">
 							</div>
 						</c:forEach>
@@ -205,6 +212,7 @@
 							<label id="re-input-before-label" for="re-input-before">이미지
 								그대로 사용</label> <input style="display: none;" id="re-input-before"
 								class="form-control" type="button">
+							<button type="button" id="undo-oldimagebtn" style="border: none;" hidden>선택취소</button>
 						</div>
 					</c:if>
 					<div class="item form-group">
@@ -214,10 +222,12 @@
 							multiple="multiple" class="form-control" type="file"
 							accept="image/*" hidden>
 						<button type="button" id="newimagebtn" style="border: none;">이미지 선택</button>
+						<button type="button" id="undo-newimagebtn" style="border: none;" hidden>선택취소</button>
+						
 					</div>
 					<!-- 이미지 파일 이름 list -->
 					<div class="uploadResult">
-						<ul>
+						<ul id="image-results">
 						</ul>
 					</div>
 					<!-- 제목 -->

@@ -82,6 +82,14 @@
 	color: #FFFFF;
 }
 
+#undo-newimagebtn {
+	padding: 6px 25px;
+	background-color: red;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
 </style>
 
 <link rel="stylesheet" type="text/css"
@@ -91,7 +99,7 @@
 	const appRoot = "${appRoot}";
 </script>
 
-<script src="${appRoot }/resources/js/review/uploadajax.js"></script>
+<script src="${appRoot }/resources/js/review/ajax_write.js"></script>
 <script src="${appRoot }/resources/js/review/reviewstar-write.js"></script>
 
 <!-- 구독자 이용 세탁소 정보 JS -->
@@ -153,7 +161,7 @@
 	<rev:search></rev:search>
 
 <div class="jinah-layout">
-	<!-- 리뷰 평점 -->
+	<!-- 리뷰 평점 등록 -->
 	<sec:authorize access="hasRole('ROLE_USER')">
 		<div id="review-star-parent" style="display: inline;"
 			class="container">
@@ -185,11 +193,14 @@
 				</div>
 			</div>
 		</div>
+		<!-- 최종 결정된 평점 리뷰 표시 -->
 		<div style="margin: 20px; font-family: 'Pacifico', cursive;" class="row justify-content-center">
 					<span style="font-size: 30px; font-family: 'Pacifico', cursive;">Your grading is...</span>
 					<span style="color: #0583F2; font-size: 30px; font-family: 'Pacifico', cursive;" id="reStars" name="reStars">${review.reStars }</span>
 		</div>
 	</sec:authorize>
+	
+	<!-- 관리자 공지사항 별점 -->
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<input hidden id="review-star-result" name="reviewStars" value="5">
 	</sec:authorize>
@@ -218,6 +229,7 @@
 						<label id="re-input2-label" for="re-input2">이미지 업로드</label> <input
 							style="display: none;" id="re-input2" class="form-control"
 							multiple="multiple" type="file" name="file" accept="image/*">
+						<button type="button" id="undo-newimagebtn" style="border: none;" hidden>선택취소</button>
 					</div>
 					<div class="uploadResult">
 						<ul>
@@ -229,7 +241,7 @@
 							class="form-control" value="${pinfo.member.userNickname }"
 							readonly>
 					</div>
-					<!-- data : userid -->
+					<!-- data : 사용자 id (userid) -->
 					<input id="write-userid" type="hidden" name="reWriterName"
 						value="${pinfo.member.userid }" readonly>
 

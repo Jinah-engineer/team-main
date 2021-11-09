@@ -50,15 +50,25 @@ public class UserReviewServiceImpl implements UserReviewService {
 	private S3Client s3;
 
 	public UserReviewServiceImpl() {
+		// AWS S3 버킷 정보
 		this.bucketName2 = "swteam1";
 		this.profileName = "swteam1";
 
 		Path contentLocation = new File(System.getProperty("user.home") + "/.aws/credentials").toPath();
-		ProfileFile pf = ProfileFile.builder().content(contentLocation).type(ProfileFile.Type.CREDENTIALS).build();
-		ProfileCredentialsProvider pcp = ProfileCredentialsProvider.builder().profileFile(pf).profileName(profileName)
-				.build();
+		
+		ProfileFile pf = ProfileFile.builder()
+						 .content(contentLocation)
+						 .type(ProfileFile.Type.CREDENTIALS)
+						 .build();
+		
+		ProfileCredentialsProvider pcp = ProfileCredentialsProvider.builder()
+										 .profileFile(pf)
+										 .profileName(profileName)
+										 .build();
 
-		this.s3 = S3Client.builder().credentialsProvider(pcp).build();
+		this.s3 = S3Client.builder()
+				  .credentialsProvider(pcp)
+				  .build();
 	}
 
 	// Dependency Injection
@@ -124,9 +134,11 @@ public class UserReviewServiceImpl implements UserReviewService {
 	@Override
 	@Transactional
 	public void reviewWrite(UserReviewVO review, MultipartFile[] mfile) {
-
+		
+		// 사용자 입력 폼 
 		reviewWrite(review);
-
+		
+		// AWS S3 업로드
 		for (MultipartFile file : mfile) {
 
 			if (file != null && file.getSize() > 0) {
@@ -166,6 +178,7 @@ public class UserReviewServiceImpl implements UserReviewService {
 	@Override
 	@Transactional
 	public UserReviewVO reviewGet(int reBno) {
+		// 리뷰 조회수 증가 설정
 		reviewMapper.setViewCount(reBno);
 		return reviewMapper.readReview(reBno);
 	}
@@ -199,7 +212,7 @@ public class UserReviewServiceImpl implements UserReviewService {
 
 	}
 
-	// 리뷰 게시물 수정
+	// 리뷰 게시물 수정 (이미지 없이)
 	@Override
 	public boolean reviewModify(UserReviewVO review) {
 		return reviewMapper.updateReview(review) == 1;
@@ -277,7 +290,8 @@ public class UserReviewServiceImpl implements UserReviewService {
 		}
 
 	}
-
+	
+	// 구독자 정보 불러오기
 	@Override
 	public StoreInfoVO readsubs(MemberVO vo) {
 

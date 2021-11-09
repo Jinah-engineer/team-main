@@ -154,7 +154,7 @@
 	}
 </script>
 
-<script src="${appRoot }/resources/js/review/reviewlikecount.js"></script>
+<script src="${appRoot }/resources/js/review/review-like-count.js"></script>
 
 
 </head>
@@ -305,8 +305,8 @@
 			style="color: black; padding-top: 50px; font-size: 25px; font-family: 'Cafe24SsurroundAir';"
 			class="row justify-content-center">
 			<span style="color: #35A9F2; font-family: 'Cafe24SsurroundAir';"
-				id="review-total-count"> ${review.likeCount }</span>&nbsp;명의 구독자님이 이
-			게시물을 좋아합니다.
+			id="review-total-count"> ${review.likeCount }</span>
+				&nbsp;명의 구독자님이 이 게시물을 좋아합니다.
 		</div>
 	</div>
 	<div style="display: none;" id="likerslist"></div>

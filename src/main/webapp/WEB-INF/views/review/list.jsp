@@ -273,7 +273,7 @@ $(function(){
 				</div>
 			</div>
 		</div>
-		</c:if>
+	</c:if>
 		
 		<div class="container">
 			<bot:botnav></bot:botnav>

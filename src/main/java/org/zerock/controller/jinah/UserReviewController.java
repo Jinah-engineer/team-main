@@ -66,20 +66,18 @@ public class UserReviewController {
 	// 리뷰 작성하기 (이미지 파일 포함) - userReviewWrite
 	@PostMapping("/write")
 	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
-	public String reviewWrite(UserReviewVO review, @RequestParam("file") MultipartFile[] file, ReviewCriteria recri,
-			RedirectAttributes rttr) {
-
-		// review.setFileName(file.length); // getOriginalFileName()
+	public String reviewWrite(UserReviewVO review, 
+							  @RequestParam("file") MultipartFile[] file, 
+							  ReviewCriteria recri,
+							  RedirectAttributes rttr) {
 
 		// 리뷰 글 작성하고
 		service.reviewWrite(review, file);
 
-		log.info(review);
-
 		// 평점 얻어오기
 		int stars = service.getReviewStar(review.getReBno());
+		
 		rttr.addFlashAttribute("reviewStars", stars);
-
 		rttr.addFlashAttribute("result", review.getReBno());
 		rttr.addFlashAttribute("messageTitle", "리뷰 등록 완료-!");
 		rttr.addFlashAttribute("messageBody", review.getReBno() + "번 리뷰가 등록되었습니다.");

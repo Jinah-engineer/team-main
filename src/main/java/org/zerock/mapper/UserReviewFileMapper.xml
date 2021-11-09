@@ -4,18 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="org.zerock.mapper.UserReviewFileMapper">
-	
+	<!-- 리뷰 이미지 파일 등록 -->
 	<insert id="reviewFileInsert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 		INSERT INTO user_review_file (bno, fileName)
 		VALUES (#{bno}, #{fileName})
 	</insert>
 	
+	<!-- 리뷰 이미지 파일 삭제 -->
 	<delete id="deleteReviewByBno">
 		DELETE FROM user_review_file
 		WHERE 
 			bno = #{bno}
 	</delete>
 	
+	<!-- 해당 사용자의 이미지 파일 삭제 -->
 	<delete id="removeReviewByUserid">
 		DELETE FROM user_review_file
 		WHERE bno IN (

@@ -3,14 +3,13 @@ $(document).ready(function () {
     const $reviewModifyBtn = $('#review-star-modify-btn');
 
         $(".review-star-child").click(function() {
-            console.log("!!!!!!!")
             $(".review-star-child").find("[data-fa-i2svg]").removeClass("fas").addClass("far");
             $(this).prevAll().find("[data-fa-i2svg]").removeClass("far").addClass("fas");
             $(this).find("[data-fa-i2svg]").removeClass("far").addClass("fas");
         });
-
+    
+    // 평점 수정 Ajax 처리
     $reviewModifyBtn.click(function () {
-        console.log("star!");
         $.ajax({
             type: "get",
             url: appRoot + "/review/modify",
